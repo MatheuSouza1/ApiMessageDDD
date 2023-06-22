@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
-    internal class Message
+    public class Message
     {
         [Column("MSN_ID")]
         public int id { get; set; }
