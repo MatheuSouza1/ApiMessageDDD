@@ -8,23 +8,24 @@ using System.Threading.Tasks;
 
 namespace Entities.Entities
 {
+    [Table("TB_MESSAGE")]
     public class Message
     {
         [Column("MSN_ID")]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Column("MSN_TITLE")]
         [StringLength(255)]
-        public string title { get; set; }
+        public string Title { get; set; }
         [Column("MSN_ISACTIVATED")]
-        public bool isActivated { get; set; }
+        public bool IsActivated { get; set; }
         [Column("MSN_REGISTERTIME")]
-        public DateTime registerDate { get; set; }
+        public DateTime RegisterDate { get; set; }
         [Column("MSN_ALTTIME")]
-        public DateTime altTime { get; set; }
+        public DateTime AltTime { get; set; }
 
         [ForeignKey("ApplicationUser")]
         [Column(Order = 1)]
-        public int userId { get; set; }
-        public ApplicationUser applicationUser { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

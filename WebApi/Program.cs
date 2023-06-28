@@ -30,6 +30,8 @@ namespace WebApi
             builder.Services.AddSwaggerGen();
 
             // ConfigServices
+            builder.Services.AddDbContext<ContextBase>(options =>
+              options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             
 
             builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)

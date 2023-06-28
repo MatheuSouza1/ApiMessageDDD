@@ -16,7 +16,7 @@ namespace Infraestructure.Configuration
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
 
         //constructor
-        public ContextBase(DbContextOptions options) : base(options)
+        public ContextBase(DbContextOptions<ContextBase> options) : base(options)
         {
             
         }
@@ -36,7 +36,7 @@ namespace Infraestructure.Configuration
             base.OnModelCreating(builder);
         }
 
-        public string GetConnectionString()
+        public static string GetConnectionString()
         {
             return "Data Source=DESKTOP-MHHGNGB;Initial Catalog=messagesDb;Integrated Security=True";
         }

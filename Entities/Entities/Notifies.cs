@@ -10,24 +10,24 @@ namespace Entities.Entities
     public class Notifies
     {
         [NotMapped]
-        public string _propName { get; set; }
+        public string PropName { get; set; }
         [NotMapped]
-        public string _message { get; set; }
+        public string Message { get; set; }
         [NotMapped]
-        public List<Notifies> notifies { get; set; }
+        public List<Notifies> Notify { get; set; }
 
         public Notifies(string propName, string message) 
         {
-            _propName = propName;
-            _message = message;
-            notifies = new List<Notifies>();
+            PropName = propName;
+            Message = message;
+            Notify = new List<Notifies>();
         }
 
         public bool stringValidation(string value, string propName)
         {
             if (string.IsNullOrWhiteSpace(propName) || string.IsNullOrWhiteSpace(value)) 
             {
-                notifies.Add(new Notifies(propName, "Campo Obrigatorio"));
+                Notify.Add(new Notifies(propName, "Campo Obrigatorio"));
                 return false;
             }
             else
@@ -40,7 +40,7 @@ namespace Entities.Entities
         {
             if (value < 1 || string.IsNullOrWhiteSpace(propName))
             {
-                notifies.Add(new Notifies(propName, "Campo Obrigatorio"));
+                Notify.Add(new Notifies(propName, "Campo Obrigatorio"));
                 return false;
             }
             else { return true; }

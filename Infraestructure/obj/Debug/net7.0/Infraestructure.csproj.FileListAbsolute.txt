@@ -1,0 +1,17 @@
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Infraestructure.deps.json
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Infraestructure.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Infraestructure.pdb
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Domain.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Entities.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Domain.pdb
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\bin\Debug\net7.0\Entities.pdb
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.csproj.AssemblyReference.cache
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.AssemblyInfoInputs.cache
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.AssemblyInfo.cs
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.csproj.CoreCompileInputs.cache
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.csproj.CopyComplete
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\refint\Infraestructure.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\Infraestructure.pdb
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Infraestructure\obj\Debug\net7.0\ref\Infraestructure.dll

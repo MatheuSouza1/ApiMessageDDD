@@ -12,8 +12,8 @@ namespace Entities.Entities
     public class ApplicationUser : IdentityUser
     {
         [Column("USR_CPF")]
-        public string cpf { get; set; }
+        public string Cpf { get; set; }
         [Column("USR_TYPE")]
-        public UserType? userType { get; set; }
+        public UserType? UserType { get; set; }
     }
 }
