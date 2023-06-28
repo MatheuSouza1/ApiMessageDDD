@@ -23,7 +23,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [Produces("application/json")]
-        [HttpPost("/api/CreateToken")]
+        [HttpPost("/api/CreateIdentityToken")]
         public async Task<IActionResult> CreateIdentityToken([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
