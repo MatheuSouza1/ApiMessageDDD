@@ -10,3 +10,5 @@ C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\obj\Debug\net7.0\Entiti
 C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\obj\Debug\net7.0\refint\Entities.dll
 C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\obj\Debug\net7.0\Entities.pdb
 C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\obj\Debug\net7.0\ref\Entities.dll
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\bin\Debug\net7.0\Entities.runtimeconfig.json
+C:\Users\rdeso\Documents\Cshrp\API_MESSAGES_DDD\Entities\obj\Debug\net7.0\Entities.genruntimeconfig.cache

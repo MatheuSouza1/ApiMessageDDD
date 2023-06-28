@@ -11,11 +11,14 @@ namespace Infraestructure.Configuration
 {
     public class ContextBase : IdentityDbContext<ApplicationUser>
     {
+        //properties
         public DbSet<Message> Message { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
-        public ContextBase(DbContextOptions<ContextBase> options) : base(options) 
+
+        //constructor
+        public ContextBase(DbContextOptions options) : base(options)
         {
-               
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

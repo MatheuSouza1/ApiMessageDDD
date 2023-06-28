@@ -2,26 +2,21 @@
 using Infraestructure.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
-using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infraestructure.Repository.Generics
 {
-    public class RepositoryGenerics<T> : IGeneric<T>, IDisposable where T : class
+    public class GenericRepository<T> : IGeneric<T>, IDisposable where T : class
     {
-        private readonly DbContextOptions<ContextBase> _optionsBuilder;
-
-        public RepositoryGenerics()
+        private readonly DbContextOptions<ContextBase> _dbContext;
+        public GenericRepository()
         {
-            _optionsBuilder = new DbContextOptions<ContextBase>();
+            _dbContext = new DbContextOptions<ContextBase>();
         }
+
         public async Task Add(T entity)
         {
-            using(var data = new ContextBase(_optionsBuilder))
+            using (var data = new ContextBase(_dbContext))
             {
                 await data.Set<T>().AddAsync(entity);
                 await data.SaveChangesAsync();
@@ -30,7 +25,7 @@ namespace Infraestructure.Repository.Generics
 
         public async Task Delete(T entity)
         {
-            using(var data = new ContextBase(_optionsBuilder))
+            using (var data = new ContextBase(_dbContext))
             {
                 data.Set<T>().Remove(entity);
                 await data.SaveChangesAsync();
@@ -39,7 +34,7 @@ namespace Infraestructure.Repository.Generics
 
         public async Task<T> GetEntityById(int id)
         {
-            using(var data = new ContextBase(_optionsBuilder))
+            using (var data = new ContextBase(_dbContext))
             {
                 return await data.Set<T>().FindAsync(id);
             }
@@ -47,7 +42,7 @@ namespace Infraestructure.Repository.Generics
 
         public async Task<List<T>> List()
         {
-            using(var data = new ContextBase(_optionsBuilder))
+            using (var data = new ContextBase(_dbContext))
             {
                 return await data.Set<T>().AsNoTracking().ToListAsync();
             }
@@ -55,7 +50,7 @@ namespace Infraestructure.Repository.Generics
 
         public async Task Update(T entity)
         {
-            using(var data = new ContextBase(_optionsBuilder))
+            using (var data = new ContextBase(_dbContext))
             {
                 data.Set<T>().Update(entity);
                 await data.SaveChangesAsync();
@@ -68,8 +63,6 @@ namespace Infraestructure.Repository.Generics
         bool disposed = false;
         // Instantiate a SafeHandle instance.
         SafeHandle handle = new SafeFileHandle(IntPtr.Zero, true);
-
-
 
         // Public implementation of Dispose pattern callable by consumers.
         public void Dispose()

@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace Infraestructure.Repository.Repositories
 {
-    public class RepositoryMessage : RepositoryGenerics<Message>, IMessage
+    public class MessageRepository : GenericRepository<Message>, IMessage
     {
-        private readonly DbContextOptions<ContextBase> _optionsBuilder;
-        public RepositoryMessage() 
+        private readonly DbContextOptions<ContextBase> _dbContext;
+        public MessageRepository()
         {
-            _optionsBuilder = new DbContextOptions<ContextBase>();
+            _dbContext = new DbContextOptions<ContextBase>();
         }
     }
 }
