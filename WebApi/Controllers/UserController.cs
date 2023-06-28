@@ -1,4 +1,5 @@
 ﻿using Entities.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -19,6 +20,10 @@ namespace WebApi.Controllers
             _signInManager = signInManager;
         }
 
+
+        [AllowAnonymous]
+        [Produces("application/json")]
+        [HttpPost("/api/CreateToken")]
         public async Task<IActionResult> CreateIdentityToken([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
