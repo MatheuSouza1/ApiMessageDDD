@@ -16,10 +16,8 @@ namespace Entities.Entities
         [NotMapped]
         public List<Notifies> Notify { get; set; }
 
-        public Notifies(string propName, string message) 
+        public Notifies() 
         {
-            PropName = propName;
-            Message = message;
             Notify = new List<Notifies>();
         }
 
@@ -27,7 +25,7 @@ namespace Entities.Entities
         {
             if (string.IsNullOrWhiteSpace(propName) || string.IsNullOrWhiteSpace(value)) 
             {
-                Notify.Add(new Notifies(propName, "Campo Obrigatorio"));
+                Notify.Add(new Notifies{ PropName = propName, Message = "Campo Obrigatorio" });
                 return false;
             }
             else
@@ -40,7 +38,7 @@ namespace Entities.Entities
         {
             if (value < 1 || string.IsNullOrWhiteSpace(propName))
             {
-                Notify.Add(new Notifies(propName, "Campo Obrigatorio"));
+                Notify.Add(new Notifies { PropName = propName, Message = "Campo Obrigatorio" });
                 return false;
             }
             else { return true; }

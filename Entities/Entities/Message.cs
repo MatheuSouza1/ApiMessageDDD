@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace Entities.Entities
 {
     [Table("TB_MESSAGE")]
-    public class Message
+    public class Message : Notifies
     {
         [Column("MSN_ID")]
         public int Id { get; set; }
         [Column("MSN_TITLE")]
-        [StringLength(255)]
+        [MaxLength(255)]
         public string Title { get; set; }
         [Column("MSN_ISACTIVATED")]
         public bool IsActivated { get; set; }

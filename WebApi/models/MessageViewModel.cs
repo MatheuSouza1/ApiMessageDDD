@@ -8,6 +8,6 @@ namespace WebApi.models
         public bool isActivated { get; set; }
         public DateTime registerDate { get; set; }
         public DateTime altTime { get; set; }
-        public int userId { get; set; }
+        public string userId { get; set; }
     }
 }
