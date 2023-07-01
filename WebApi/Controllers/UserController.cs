@@ -26,8 +26,8 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [Produces("application/json")]
-        [HttpPost("/api/CreateIdentityToken")]
-        public async Task<IActionResult> CreateIdentityToken([FromBody] Login login)
+        [HttpGet("/api/CreateIdentityToken")]
+        public async Task<IActionResult> Login([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
             {
@@ -45,10 +45,10 @@ namespace WebApi.Controllers
                 var token = new TokenJWTBuilder()
                     .AddSecurityKey(JwtSecurityKey.CreateToken("Secret_Key-12345678"))
                 .AddSubject("Matheus")
-                .AddIssuer("Testing.Securiry.Bearer")
-                .AddAudience("Testing.Securiry.Bearer")
+                .AddIssuer("Testing.Security.Bearer")
+                .AddAudience("Testing.Security.Bearer")
                 .AddClaim("userId", userId)
-                .AddExpiry(5)
+                .AddExpiry(10)
                 .Builder();
 
                 return Ok(token.value);
@@ -62,7 +62,7 @@ namespace WebApi.Controllers
         [AllowAnonymous]
         [Produces("application/json")]
         [HttpPost("/api/AddIdentityToken")]
-        public async Task<IActionResult> AdicionaUsuarioIdentity([FromBody] Login login)
+        public async Task<IActionResult> Register([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
                 return Ok("Falta alguns dados");

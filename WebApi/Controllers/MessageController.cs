@@ -32,8 +32,8 @@ namespace WebApi.Controllers
         }
 
         [Authorize]
-        [HttpGet("/api/Post")]
-        public async Task<List<Notifies>> Post(MessageViewModel messageViewModel)
+        [HttpPost("/api/AddMessage")]
+        public async Task<List<Notifies>> AddMessage(MessageViewModel messageViewModel)
         {
             messageViewModel.userId = GetIdUser();
             var messageMap = _mapper.Map<Message>(messageViewModel);

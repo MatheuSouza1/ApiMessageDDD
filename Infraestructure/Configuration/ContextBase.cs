@@ -38,7 +38,7 @@ namespace Infraestructure.Configuration
 
         public static string GetConnectionString()
         {
-            return "Data Source=DESKTOP-MHHGNGB;Initial Catalog=messagesDb;Integrated Security=True";
+            return "Data Source=DESKTOP-MHHGNGB;Initial Catalog=messagesDb;Integrated Security=True;TrustServerCertificate=True";
         }
     }
 }
