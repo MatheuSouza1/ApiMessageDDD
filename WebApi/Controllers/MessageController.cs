@@ -32,6 +32,16 @@ namespace WebApi.Controllers
         }
 
         [Authorize]
+        [Produces("application/json")]
+        [HttpGet("/api/GetAll")]
+        public async Task<List<MessageViewModel>> GetAll()
+        {
+            var message = await _message.List();
+            var messageMap = _mapper.Map<List<MessageViewModel>>(message);
+            return messageMap;
+        }
+
+        [Authorize]
         [HttpPost("/api/AddMessage")]
         public async Task<List<Notifies>> AddMessage(MessageViewModel messageViewModel)
         {
@@ -39,6 +49,15 @@ namespace WebApi.Controllers
             var messageMap = _mapper.Map<Message>(messageViewModel);
             await _message.Add(messageMap);
             return messageMap.Notify;
+        }
+
+        [Authorize]
+        [HttpPut("/api/UpdateMessage")]
+        public async Task<ActionResult<MessageViewModel>> UpdateMessage([FromBody] MessageViewModel messageView)
+        {
+            var messageMap = _mapper.Map<Message>(messageView);
+            await _message.Update(messageMap);
+            return Ok(messageMap);
         }
     }
 }

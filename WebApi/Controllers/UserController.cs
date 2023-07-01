@@ -26,7 +26,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [Produces("application/json")]
-        [HttpGet("/api/CreateIdentityToken")]
+        [HttpGet("/api/Login")]
         public async Task<IActionResult> Login([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
@@ -61,7 +61,7 @@ namespace WebApi.Controllers
 
         [AllowAnonymous]
         [Produces("application/json")]
-        [HttpPost("/api/AddIdentityToken")]
+        [HttpPost("/api/Register")]
         public async Task<IActionResult> Register([FromBody] Login login)
         {
             if (string.IsNullOrWhiteSpace(login.email) || string.IsNullOrWhiteSpace(login.password))
