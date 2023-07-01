@@ -45,7 +45,7 @@ namespace WebApi.Controllers
         [HttpPost("/api/AddMessage")]
         public async Task<List<Notifies>> AddMessage(MessageViewModel messageViewModel)
         {
-            messageViewModel.userId = GetIdUser();
+            messageViewModel.UserId = GetIdUser();
             var messageMap = _mapper.Map<Message>(messageViewModel);
             await _message.Add(messageMap);
             return messageMap.Notify;
@@ -58,6 +58,19 @@ namespace WebApi.Controllers
             var messageMap = _mapper.Map<Message>(messageView);
             await _message.Update(messageMap);
             return Ok(messageMap);
+        }
+
+        [Authorize]
+        [HttpDelete("/api/DeleteMessage/{id:int}")]
+        public async Task<ActionResult> DeleteMessage(int id)
+        {
+            var message = await _message.GetEntityById(message => message.Id == id);
+            if (message == null)
+            {
+                return NotFound("Mensagem não encontrada");
+            }
+            await _message.Delete(message);
+            return Ok("Mensagem apagada");
         }
     }
 }

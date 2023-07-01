@@ -2,6 +2,7 @@
 using Infraestructure.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices;
 
 namespace Infraestructure.Repository.Generics
@@ -32,11 +33,11 @@ namespace Infraestructure.Repository.Generics
             }
         }
 
-        public async Task<T> GetEntityById(int id)
+        public async Task<T> GetEntityById(Expression<Func<T, bool>> predicate)
         {
             using (var data = new ContextBase(_dbContext))
             {
-                return await data.Set<T>().FindAsync(id);
+                return await data.Set<T>().FirstOrDefaultAsync(predicate);
             }
         }
 
