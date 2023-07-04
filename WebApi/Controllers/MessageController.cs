@@ -42,6 +42,22 @@ namespace WebApi.Controllers
         }
 
         [Authorize]
+        [HttpGet("/api/GetById/{id:int}")]
+        public async Task<ActionResult<MessageViewModel>> GetById(int id)
+        {
+            var message = await _message.GetEntityById(message => message.Id == id);
+            if (message == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var messageMap = _mapper.Map<MessageViewModel>(message);
+                return Ok(messageMap);
+            }
+        }
+
+        [Authorize]
         [HttpPost("/api/AddMessage")]
         public async Task<List<Notifies>> AddMessage(MessageViewModel messageViewModel)
         {
