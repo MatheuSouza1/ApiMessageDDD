@@ -77,7 +77,7 @@ namespace WebApi
                   });
 
 
-            var config = new AutoMapper.MapperConfiguration(cfg =>
+            var config = new MapperConfiguration(cfg =>
             {
                 cfg.CreateMap<MessageViewModel, Message>();
                 cfg.CreateMap<Message, MessageViewModel>();
