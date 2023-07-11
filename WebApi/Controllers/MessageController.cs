@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Interfaces;
+using Domain.Interfaces.InterfaceServices;
 using Entities.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -14,11 +15,13 @@ namespace WebApi.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IMessage _message;
+        private readonly IServiceMessage _serviceMessage;
 
-        public MessageController(IMapper mapper, IMessage message)
+        public MessageController(IMapper mapper, IMessage message, IServiceMessage serviceMessage)
         {
             _mapper = mapper;
             _message = message;
+            _serviceMessage = serviceMessage;
         }
 
         private string GetIdUser()
@@ -37,6 +40,16 @@ namespace WebApi.Controllers
         public async Task<List<MessageViewModel>> GetAll()
         {
             var message = await _message.List();
+            var messageMap = _mapper.Map<List<MessageViewModel>>(message);
+            return messageMap;
+        }
+
+        [Authorize]
+        [Produces("application/json")]
+        [HttpGet("/api/GetActives")]
+        public async Task<List<MessageViewModel>> GetActives()
+        {
+            var message = await _serviceMessage.ListActivesMessages();
             var messageMap = _mapper.Map<List<MessageViewModel>>(message);
             return messageMap;
         }
@@ -63,7 +76,7 @@ namespace WebApi.Controllers
         {
             messageViewModel.UserId = GetIdUser();
             var messageMap = _mapper.Map<Message>(messageViewModel);
-            await _message.Add(messageMap);
+            await _serviceMessage.Add(messageMap);
             return messageMap.Notify;
         }
 
@@ -72,7 +85,7 @@ namespace WebApi.Controllers
         public async Task<ActionResult<MessageViewModel>> UpdateMessage([FromBody] MessageViewModel messageView)
         {
             var messageMap = _mapper.Map<Message>(messageView);
-            await _message.Update(messageMap);
+            await _serviceMessage.Update(messageMap);
             return Ok(messageMap);
         }
 

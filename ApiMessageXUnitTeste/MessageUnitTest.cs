@@ -38,16 +38,19 @@ namespace ApiMessageXUnitTeste
             _mapper = config.CreateMapper();
         }
 
-        //====UNIT TESTES====
+        //====UNIT TEST====
 
         //GET TEST:
         [Fact]
         public void GetMessage_Return_OkResult()
         {
+            //Arrange
             var controller = new MessageController(_mapper, _message);
 
+            //Act
             var data = controller.GetAll();
 
+            //Assert
             Assert.IsType<Task<List<MessageViewModel>>>(data);
 ;        }
     }
