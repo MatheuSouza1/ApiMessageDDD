@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.Interfaces;
+using Domain.Interfaces.InterfaceServices;
 using Entities.Entities;
 using Infraestructure.Configuration;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ namespace ApiMessageXUnitTeste
     {
         private IMapper _mapper;
         private IMessage _message;
+        private IServiceMessage serviceMessage;
 
         public static DbContextOptions<ContextBase> dbOptions { get; }
 
@@ -45,7 +47,7 @@ namespace ApiMessageXUnitTeste
         public void GetMessage_Return_OkResult()
         {
             //Arrange
-            var controller = new MessageController(_mapper, _message);
+            var controller = new MessageController(_mapper, _message, serviceMessage);
 
             //Act
             var data = controller.GetAll();

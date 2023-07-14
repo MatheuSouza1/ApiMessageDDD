@@ -44,7 +44,8 @@ namespace WebApi.Controllers
             return messageMap;
         }
 
-        [Authorize]
+        //[Authorize]
+        [AllowAnonymous]
         [Produces("application/json")]
         [HttpGet("/api/GetActives")]
         public async Task<List<MessageViewModel>> GetActives()

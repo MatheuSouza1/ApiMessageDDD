@@ -44,6 +44,8 @@ namespace WebApi
             //Domain Services
             builder.Services.AddSingleton<IServiceMessage, ServiceMessage>();
 
+            //CorsConfig
+            builder.Services.AddCors();
 
             // JWT
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -99,6 +101,14 @@ namespace WebApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //Using Cors to test the api in a local React app
+            var devClient = "http://localhost:3000";
+
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader().WithOrigins(devClient));
 
             app.MapControllers();
             app.UseSwaggerUI();
