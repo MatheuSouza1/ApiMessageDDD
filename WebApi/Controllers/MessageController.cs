@@ -34,7 +34,7 @@ namespace WebApi.Controllers
             else { return string.Empty; }
         }
 
-        [Authorize]
+        //[Authorize]
         [Produces("application/json")]
         [HttpGet("/api/GetAll")]
         public async Task<List<MessageViewModel>> GetAll()
@@ -55,7 +55,7 @@ namespace WebApi.Controllers
             return messageMap;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("/api/GetById/{id:int}")]
         public async Task<ActionResult<MessageViewModel>> GetById(int id)
         {
@@ -81,7 +81,7 @@ namespace WebApi.Controllers
             return messageMap.Notify;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPut("/api/UpdateMessage")]
         public async Task<ActionResult<MessageViewModel>> UpdateMessage([FromBody] MessageViewModel messageView)
         {
@@ -90,7 +90,7 @@ namespace WebApi.Controllers
             return Ok(messageMap);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete("/api/DeleteMessage/{id:int}")]
         public async Task<ActionResult> DeleteMessage(int id)
         {

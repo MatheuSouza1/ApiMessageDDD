@@ -81,8 +81,7 @@ namespace WebApi
 
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<MessageViewModel, Message>();
-                cfg.CreateMap<Message, MessageViewModel>();
+                cfg.CreateMap<MessageViewModel, Message>().ForMember(m => m.AltTime, opt => opt.Ignore()).ReverseMap().ForMember(m => m.AltTime, opt => opt.MapFrom(m => m.AltTime.ToString("dd MMMM yyyy HH:mm")));
             });
 
             IMapper mapper = config.CreateMapper();

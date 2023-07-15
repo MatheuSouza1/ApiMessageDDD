@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices;
-
 namespace Infraestructure.Repository.Generics
 {
     public class GenericRepository<T> : IGeneric<T>, IDisposable where T : class
